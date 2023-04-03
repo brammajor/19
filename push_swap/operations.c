@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:32:55 by brmajor           #+#    #+#             */
-/*   Updated: 2023/03/29 15:05:05 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/04/03 12:44:00 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	pb(t_node **astack, t_node **bstack)
 	ft_printf("pb\n");
 }
 
-void	rotate(t_node **head, char x)
+void	rot(t_node **head, char x)
 {
 	t_node	*last;
 
@@ -68,3 +68,22 @@ void	rotate(t_node **head, char x)
 		return ;
 	ft_printf("p%c\n", x);
 }
+
+void	rerot(t_node **head, char x)
+{
+	t_node	*curr;
+	t_node	*prev;
+
+	curr = *head;
+	while (curr->next != NULL)
+	{
+		prev = curr
+		curr = curr->next;
+	curr->next = *head;
+	*head = curr;
+	prev->next = NULL;
+	if (x = 'r')
+		return ;
+	ft_printf("rr%c\n", x);
+}
+
