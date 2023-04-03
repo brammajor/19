@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 14:45:21 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/03 18:01:04 by brmajor          ###   ########.fr       */
+/*   Created: 2023/04/03 15:19:18 by brmajor           #+#    #+#             */
+/*   Updated: 2023/04/03 16:50:26 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main (int ac, char **av)
+void	sort_3(t_node **head)
 {
-	t_node *astack;
+	t_node	*curr;
 
-	check_error(ac, av);
-	astack = makestack(ac, av);
-	ft_printf("%d\n", is_sorted(&astack));
-	printstack(&astack);
-	sort_size(&astack);
-	printstack(&astack);
+	curr = *head;
+	if (is_sorted(head) == 0)
+		return ;
+	if (curr->content == get_biggest(head))
+		rot(head, 'a');
+	else if (curr->content == get_smallest(head))
+		rerot(head, 'a');
+	curr = curr->next;
+	if (curr->content == get_smallest(head))
+		swap(head, 'a');
 }
