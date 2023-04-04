@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:32:55 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/03 16:55:13 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/04/04 15:39:19 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,20 @@ void	pb(t_node **astack, t_node **bstack)
 
 void	rot(t_node **head, char x)
 {
-	t_node	*last;
+	t_node	*curr;
+	t_node	*newlast;
 
-	last = *head;
-	while ((*head)->next != NULL)
-		*head = (*head)->next;
-	last->next = NULL;
-	(*head)->next = last;
+	curr = *head;
+	newlast = *head;
+	curr = curr->next;
+	*head = curr;
+	while (curr->next != NULL)
+		curr = curr->next;
+	curr->next = newlast;
+	newlast->next = NULL;
 	if (x == 'r')
 		return ;
-	ft_printf("p%c\n", x);
+	ft_printf("r%c\n", x);
 }
 
 void	rerot(t_node **head, char x)
@@ -79,11 +83,11 @@ void	rerot(t_node **head, char x)
 	{
 		prev = curr;
 		curr = curr->next;
+	}
 	curr->next = *head;
 	*head = curr;
 	prev->next = NULL;
 	if (x == 'r')
 		return ;
 	ft_printf("rr%c\n", x);
-	}
 }

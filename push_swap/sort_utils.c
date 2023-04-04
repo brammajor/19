@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:40:36 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/03 18:19:25 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/04/04 15:36:43 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,22 @@
 int	is_sorted(t_node **head)
 {
 	t_node	*curr;
-	int	prev_value;
 
 	curr = *head;
-	prev_value = curr->content;
-	curr = curr->next;
 	while (curr->next != NULL)
 	{
-		if (curr->content < prev_value)
+		if (curr->content > curr->next->content)
 			return (1);
-		prev_value = curr->content;
 		curr = curr->next;
 	}
 	return (0);
 }
 
-int	get_biggest(t_node **head)
+int	get_max(t_node **head)
 {
 	t_node	*curr;
-	int	curr_num;
-	int	biggest;
+	int		curr_num;
+	int		biggest;
 
 	curr = *head;
 	biggest = curr->content;
@@ -48,11 +44,11 @@ int	get_biggest(t_node **head)
 	return (biggest);
 }
 
-int	get_smallest(t_node **head)
+int	get_min(t_node **head)
 {
 	t_node	*curr;
-	int	curr_num;
-	int	smallest;
+	int		curr_num;
+	int		smallest;
 
 	curr = *head;
 	smallest = curr->content;

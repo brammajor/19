@@ -1,0 +1,64 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    font = Monospace 15
+    foreground_color = "#ffffff"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = False
+      fullscreen = False
+      size = 1252, 2075
+      title = A
+      last_active_term = c84851e0-6210-4b72-88ef-8df8eee97aee
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = c84851e0-6210-4b72-88ef-8df8eee97aee
+    [[[child2]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1252:0
+      maximised = False
+      fullscreen = False
+      size = 1337, 2075
+      title = B
+      last_active_term = 6dcc139a-fe67-4627-91ee-b76f0b5a4ab8
+      last_active_window = False
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      uuid = 6dcc139a-fe67-4627-91ee-b76f0b5a4ab8
+    [[[child4]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 2589:0
+      maximised = False
+      fullscreen = False
+      size = 1251, 2075
+      title = C
+      last_active_term = 2a2e1084-a2cb-4960-bb27-1e7bd53783fd
+      last_active_window = False
+    [[[terminal5]]]
+      type = Terminal
+      parent = child4
+      order = 0
+      profile = default
+      uuid = 2a2e1084-a2cb-4960-bb27-1e7bd53783fd
+[plugins]
+

@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 13:39:06 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/03 17:51:56 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/04/04 17:52:33 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include "libft_custom/libft.h"
 # include "libft_custom/ft_printf.h"
 
-typedef struct	s_node
+typedef struct s_node
 {
 	int		content;
 	struct s_node	*next;
 }			t_node;
 
-int	check_dup(int ac, char **av);
-int	check_int(int ac, char **av);
+int		check_dup(int ac, char **av);
+int		check_int(int ac, char **av);
 void	check_error(int ac, char **av);
 
 t_node	*makestack(int ac, char **av);
@@ -35,13 +35,29 @@ void	pb(t_node **astack, t_node **bstack);
 void	rot(t_node **head, char x);
 void	rerot(t_node **head, char x);
 
-int	size_count(t_node **head);
-void	sort_size(t_node **head);
+int		size_count(t_node **head);
+void	sort_size(t_node **head, t_node **bstack);
 
-int	is_sorted(t_node **head);
-int	get_biggest(t_node **head);
-int	get_smallest(t_node **head);
+int		is_sorted(t_node **head);
+int		get_max(t_node **head);
+int		get_min(t_node **head);
 
+int		steps_min(t_node **astack);
+int		steps_max(t_node **astack);
+int		rot_or_rerot(int steps, int size);
+int		get_path(int steps_min, int steps_max,
+		int trigger_min, int trigger_max);
+int		calc_path(t_node **astack);
+
+void	rot_min(t_node **astack, t_node **bstack);
+void	rerot_min(t_node **astack, t_node **bstack);
+void	rot_max(t_node **astack, t_node **bstack);
+void	rerot_max(t_node **astack, t_node **bstack);
+void	next_step(t_node **astack, t_node **bstack);
+
+void	sort_2(t_node **head);
 void	sort_3(t_node **head);
+void	sort_4(t_node **head, t_node **bstack);
+void	sort_5(t_node **head, t_node **bstack);
 
 #endif
