@@ -6,11 +6,36 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:19:18 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/04 18:03:46 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/04/05 12:12:14 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	push_min_max(t_node **astack, t_node **bstack, int path)
+{
+	t_node	*curr;
+
+	curr = *astack;
+	if (path == 1 || path == 2)
+	{
+		while (curr->content != get_min(astack))
+		{
+			rot(astack, 'a');
+			curr = *astack;
+		}
+		pb(astack, bstack);
+	}
+	if (path == 3 || path == 4)
+	{
+		while (curr->content != get_max(astack))
+		{
+			rot(astack, 'a');
+			curr = *astack;
+		}
+		pb(astack, bstack);
+	}
+}
 
 void	sort_2(t_node **head)
 {
@@ -55,11 +80,20 @@ void	sort_4(t_node **astack, t_node **bstack)
 void	sort_5(t_node **astack, t_node **bstack)
 {
 	t_node	*curr;
+	int	path;
 
-	next_step(astack, bstack);
-	sort_4(astack, bstack);
+	path = next_step(astack, bstack);
+	push_min_max(astack, bstack, path);
+	sort_3(astack);
+	curr = *bstack;
+	if (curr->content == get_min(bstack))
+		rot(bstack, 'b');
 	pa(astack, bstack);
-	curr = *astack;
-	if (curr->content == get_max(astack))
+	pa(astack, bstack);
+	while (1)
+	{
+		if (is_sorted(astack) == 0)
+			break ;
 		rot(astack, 'a');
+	}
 }

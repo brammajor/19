@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 13:39:06 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/04 17:52:33 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/04/05 12:00:21 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	rot_min(t_node **astack, t_node **bstack);
 void	rerot_min(t_node **astack, t_node **bstack);
 void	rot_max(t_node **astack, t_node **bstack);
 void	rerot_max(t_node **astack, t_node **bstack);
-void	next_step(t_node **astack, t_node **bstack);
+int	next_step(t_node **astack, t_node **bstack);
 
+void	push_min_max(t_node **astack, t_node **bstack, int path);
 void	sort_2(t_node **head);
 void	sort_3(t_node **head);
 void	sort_4(t_node **head, t_node **bstack);

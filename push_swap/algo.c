@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:49:09 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/04 17:32:47 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/04/05 11:43:53 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,18 @@ void	rerot_max(t_node **astack, t_node **bstack)
 	pb(astack, bstack);
 }
 
-void	next_step(t_node **astack, t_node **bstack)
+int	next_step(t_node **astack, t_node **bstack)
 {
 	int	path;
 
 	path = calc_path(astack);
 	if (path == 1)
 		rot_min(astack, bstack);
-	if (path == 2)
+	else if (path == 2)
 		rerot_min(astack, bstack);
-	if (path == 3)
+	else if (path == 3)
 		rot_max(astack, bstack);
-	if (path == 4)
+	else if (path == 4)
 		rerot_max(astack, bstack);
+	return (path);
 }
