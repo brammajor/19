@@ -1,0 +1,6 @@
+Create new user - sudo adduser <username>
+Verify user creation success - getent passwd <username>
+Add user to group  - adduser <username> <groupname>
+Verify user was added to group - getent group <groupname>
+Check SSH/UFW - sudo service ssh status/ufw status
+Verify sudo installation - dpkg -l | grep sudo
