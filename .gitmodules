@@ -1,3 +1,6 @@
 [submodule "Push_swap"]
 	path = Push_swap
 	url = git@github.com:brammajor/Push_swap.git
+[submodule "push_swap"]
+	path = push_swap
+	url = git@github.com:brammajor/push_swap.git
