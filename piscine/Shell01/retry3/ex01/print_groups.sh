@@ -1,1 +1,0 @@
-groups $FT_USER | sed 's/ /,/g' | tr -d '\n' | cut -d ':' -f2 | cut -c2-

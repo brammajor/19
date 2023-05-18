@@ -1,6 +1,0 @@
-rotate left: xrandr -o left
-rotate right: xrandr -o right
-rotate upside down: xrandr -o inverted
-normal: xrandr -o normal
-
-parrot: curl parrot.live
