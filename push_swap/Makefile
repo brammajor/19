@@ -6,7 +6,7 @@
 #    By: brmajor <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 13:54:49 by brmajor           #+#    #+#              #
-#    Updated: 2023/03/24 14:25:41 by brmajor          ###   ########.fr        #
+#    Updated: 2023/05/10 16:14:20 by brmajor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ $(OBJ_DIR)%.o: %.c
 
 $(NAME): $(OBJ_FILES) 
 	 $(MKDIR) 
-	 $(CC) -o $(NAME) $(OBJ_FILES) 
+	 $(CC) -g -o $(NAME) $(OBJ_FILES) 
 	 chmod +x $(NAME)
 
 all: $(NAME)

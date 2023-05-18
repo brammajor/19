@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 15:19:19 by brmajor           #+#    #+#             */
-/*   Updated: 2023/03/28 16:54:24 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/05/10 15:23:45 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,19 @@ int	check_int(int ac, char **av)
 	int	i;
 	int	j;
 
-	i = 1;
 	j = 1;
 	while (j < ac)
 	{
-		if (ft_atoi(av[i]) == 0)
-			return (1);
+		i = 0;
+		if (av[j][i] == '-')
+			i++;
+		while (av[j][i] != '\0')
+		{
+			if (!ft_isdigit(av[j][i]))
+				return (1);
+			i++;
+		}
 		j++;
-		i++;
 	}
 	return (0);
 }

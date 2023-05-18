@@ -1,57 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   makestacks.c                                       :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 12:10:16 by brmajor           #+#    #+#             */
-/*   Updated: 2023/05/18 15:31:38 by brmajor          ###   ########.fr       */
+/*   Created: 2023/05/18 13:17:08 by brmajor           #+#    #+#             */
+/*   Updated: 2023/05/18 14:44:43 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*makestack(int ac, char **av)
-{
-	t_node	*astack;
-	t_node	*newnode;
-	t_node	*curr;
-	int		i;
-
-	if (ac <= 1)
-		exit (1);
-	i = 0;
-	astack = NULL;
-	curr = NULL;
-	while (++i < ac)
-	{
-		newnode = (t_node *)malloc(sizeof(t_node));
-		newnode->content = ft_atoi(av[i]);
-		newnode->next = NULL;
-		if (astack == NULL)
-		{
-			astack = newnode;
-			curr = astack;
-		}
-		else
-		{
-			curr->next = newnode;
-			curr = newnode;
-		}
-	}
-	return (astack);
-}
-
-void	printstack(t_node **astack)
+void	give_index(t_node **astack)
 {
 	t_node	*curr;
+	int		index;
+	int		min;
 
 	curr = *astack;
+	index = 0;
+	min = get_min(astack);
+	while (index < size_count(astack))
+	{
+		while (curr != NULL)
+		{
+			if (curr->content == min)
+			{
+				curr->index = index;
+				index++;
+				min = new_min(astack, min);
+			}
+			curr = curr->next;
+		}
+		curr = *astack;
+	}
+}
+
+int	new_min(t_node **astack, int min)
+{
+	t_node	*curr;
+	int		newmin;
+
+	curr = *astack;
+	newmin = 2147483647;
 	while (curr != NULL)
 	{
-
-		ft_printf("index:%d\t\tvalue:%d\n", curr->index, curr->content);
+		if (curr->content < newmin && curr->content > min)
+			newmin = curr->content;
 		curr = curr->next;
 	}
+	return (newmin);
 }

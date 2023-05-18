@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:21:25 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/04 17:52:01 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/05/18 15:50:24 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,25 @@ int	size_count(t_node **head)
 	return (size);
 }
 
-void	sort_size(t_node **astack, t_node **bstack)
+int	sort_size(t_node **astack, t_node **bstack)
 {
 	int	size;
+	int	op_count;
 
 	(void)bstack;
 	size = size_count(astack);
+	op_count = 0;
 	if (size == 2)
-		rot(astack, 'a');
+		op_count = rot(astack, 'a');
 	else if (size == 3)
-		sort_3(astack);
+		op_count = sort_3(astack);
 	else if (size == 4)
-		sort_4(astack, bstack);
+		op_count = sort_4(astack, bstack);
 	else if (size == 5)
 		sort_5(astack, bstack);
-//	else if (size > 4 && size <= 100)
-//		sort_100(head);
-//	else if (size > 100)
-//		sort_500(head);
+//	else if (size > 5 && size <= 24)
+//		op_count = sort_chunk(astack, bstack);
+//	else if (size > 24 && <= 100)
+//		op_count = sort_100(astack, bstack);
+	return (op_count);
 }

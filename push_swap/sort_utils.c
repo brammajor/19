@@ -6,7 +6,7 @@
 /*   By: brmajor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:40:36 by brmajor           #+#    #+#             */
-/*   Updated: 2023/04/04 15:36:43 by brmajor          ###   ########.fr       */
+/*   Updated: 2023/05/10 15:49:31 by brmajor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,22 @@ int	is_sorted(t_node **head)
 	t_node	*curr;
 
 	curr = *head;
+	while (curr->next != NULL)
+	{
+		if (curr->content > curr->next->content)
+			return (1);
+		curr = curr->next;
+	}
+	return (0);
+}
+
+int	is_all_sorted(t_node **astack, t_node **bstack)
+{
+	t_node	*curr;
+
+	if (*bstack != NULL)
+		return (1);
+	curr = *astack;
 	while (curr->next != NULL)
 	{
 		if (curr->content > curr->next->content)
